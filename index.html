@@ -1,104 +1,183 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="portfolio.css">
-    
-	<title>Personal_Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eaf2ff">
+  <meta name="description" content="Vaibhav Gupta — Software Engineer focused on distributed systems, backend infrastructure, and cloud platforms.">
+  <title>Vaibhav Gupta | Resume</title>
+  <style>
+    :root {
+      --bg: #edf3fb; --paper: #ffffff; --ink: #17243a; --muted: #5b6b82;
+      --line: #d9e3f0; --accent: #2463c7; --accent-soft: #e8f0ff;
+      --chip: #f1f5fb; --shadow: 0 18px 55px rgba(29, 55, 95, .12);
+    }
+    [data-theme="dark"] {
+      --bg: #101827; --paper: #182437; --ink: #eef4ff; --muted: #a9b8ce;
+      --line: #2d3c52; --accent: #8ab4ff; --accent-soft: #233958;
+      --chip: #202f44; --shadow: 0 18px 55px rgba(0,0,0,.28);
+    }
+    [data-theme="terminal"] {
+      --bg: #07110c; --paper: #0c1a12; --ink: #c7f9d4; --muted: #86b99a;
+      --line: #244b31; --accent: #5df59a; --accent-soft: #102b1b;
+      --chip: #102419; --shadow: 0 18px 55px rgba(0,0,0,.32);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; transition: background .2s, color .2s; }
+    .toolbar { max-width: 980px; margin: 22px auto 0; padding: 0 22px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .toolbar-group { display: flex; gap: 7px; align-items: center; flex-wrap: wrap; }
+    button, select { border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 9px; padding: 8px 11px; font: inherit; font-size: 12px; cursor: pointer; }
+    button:hover, select:hover { border-color: var(--accent); }
+    button.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+    .resume { width: min(900px, calc(100% - 32px)); margin: 18px auto 44px; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); padding: clamp(24px, 5vw, 54px); }
+    .hero { padding-bottom: 25px; border-bottom: 1px solid var(--line); }
+    .eyebrow { text-transform: uppercase; letter-spacing: .16em; color: var(--accent); font-weight: 750; font-size: 11px; }
+    h1 { margin: 8px 0 3px; font-size: clamp(32px, 5vw, 45px); letter-spacing: -.045em; line-height: 1.15; }
+    .headline { margin: 0 0 12px; color: var(--muted); font-weight: 600; }
+    .contact { display: flex; gap: 8px 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .summary { margin: 18px 0 0; max-width: 760px; }
+    section { margin-top: 30px; }
+    h2 { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; font-size: 15px; text-transform: uppercase; letter-spacing: .13em; }
+    h2::after { content: ""; height: 1px; background: var(--line); flex: 1; }
+    .role { margin: 0 0 23px; }
+    .role:last-child { margin-bottom: 0; }
+    .role-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px 20px; flex-wrap: wrap; }
+    h3 { margin: 0; font-size: 16px; letter-spacing: -.015em; }
+    .date { color: var(--muted); font-size: 12px; font-weight: 650; white-space: nowrap; }
+    .org-meta { margin: 2px 0 9px; color: var(--muted); font-size: 13px; }
+    ul { padding-left: 19px; margin: 8px 0 0; }
+    li { margin: 0 0 8px; padding-left: 2px; }
+    li::marker { color: var(--accent); }
+    .skills-grid { display: grid; grid-template-columns: 130px 1fr; gap: 10px 16px; }
+    .skill-label { font-weight: 700; font-size: 13px; }
+    .skill-value { color: var(--muted); font-size: 13px; }
+    .education { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .recognition { color: var(--muted); }
+    .footer { text-align: center; color: var(--muted); font-size: 11px; padding: 0 20px 24px; }
+    @media (max-width: 600px) {
+      .toolbar { margin-top: 12px; }
+      .resume { padding: 23px 19px; margin-top: 12px; }
+      .skills-grid { grid-template-columns: 1fr; gap: 3px; }
+      .skill-value { margin-bottom: 9px; }
+      .role-head { display: block; }
+      .date { display: block; margin-top: 2px; }
+    }
+    @media print {
+      :root, [data-theme="dark"], [data-theme="terminal"] { --bg: #fff; --paper: #fff; --ink: #111; --muted: #444; --line: #ddd; --accent: #2457a7; --accent-soft: #eef3ff; --chip: #f7f7f7; }
+      body { background: #fff; font-size: 10pt; }
+      .toolbar, .footer { display: none !important; }
+      .resume { width: 100%; margin: 0; padding: 0; border: 0; box-shadow: none; border-radius: 0; }
+      section { margin-top: 20px; }
+      .role { break-inside: avoid; margin-bottom: 15px; }
+      a { color: inherit; }
+    }
+  </style>
 </head>
-<body>
-	
-<div id="page-wrapper">
-	<nav id="navbar">
-	      <div id="name">Vaibhav Gupta</div>	
-			<a href="#welcome-section">Intro</a>
-			<a href="#projects">Projects</a>
-			<a href="#footer">Contact</a>
-		
-	</nav>
-	<div id="welcome-section">
-		<div id="quote">
-		<h1>"Your Attitude defines Everything" </h1>
-	</div>
-	
-	<div id="intro">
-		<div id="logo">
-		  <img src="pp.jpg">
-	    </div>
-		
-		 
-<div id="acc">
-	<button class="accordion" >About</button>
-	<div class="panel">
-	  
-	  I am vaibhav Gupta, belonging to Raipur, Chhattisgarh. I am studying B.tech at NIT Raipur
-	  and my branch of study is Information Technology. I am a curious guy and loves to understand 
-	  science and Technology, I am passionate about learning and loves trying out new stuffs whole 
-	  heartedly
-	  
-	</div>
-	<button class="accordion" >Education</button>
-	<div class="panel">
-	  
-	  I have completed my 10th and 12th in Rambo Memorial school with percentage of 86% and 87% 
-	  respectively. I scored 137 numbers in my JEE mains and hence got admission in NIT Raipur.My 
-	  current cgpa is 8.70 
-	  
-	</div>
-	<button class="accordion " >Skills</button>
-	<div class="panel">
-	    
-	  <ul>
-		<li>Languages : C, C++ </li>
-		<li>Web development :  HTML, CSS, Bootstrap,  Javascript, Nodejs, Mysql, Reactjs, Redux</li>
-		<li>App development : java, XML , Android studio, Firebase</li>
-		<li>Competetive programming: C++</li>
-	  </ul>
-	</div>
-	<button class="accordion" >Currently working on</button>
-	<div class="panel">
-	 I am currently learning Blockchain on Ethereum and Hyperledger fabric platform.<br>
-	 Also starting out on open source development
-	  
-	</div>
-  </div>
-	</div>
-</div>
-	<div id="projects">
-		<div id="ttl">Made with heart and soul</div>
-		<div id="row">
-			<a href="https://github.com/vaibnak/Reddit-app" target="_blank"><div id="box" class="project-tile" >REDDIT DAILY <br><br>
-				Made using: Reactjs, Redux
-			</div></a>
-			<a href = "https://github.com/dvkcool/guru-guidance" target="_blank"><div id="box" class="project-tile" >GURU GUIDANCE <br><br>
-				Made using: HTML, CSS, Javascript, IBM Cloud, Cloudant
-			</div></a>
-		</div>
-		<div id="row">
-			<a href="https://github.com/vaibnak/newsreaderapp" target="_blank"><div id="box" class="project-tile"  >NEWS PORTAL  <br><br>
-				Made using: Android studio, Hackernews API 
-			</div></a>
-		     <a href = "https://github.com/vaibnak/Guess-the-celebrity" target="_blank"><div id="box" class="project-tile" >QUIZ MASTER  <br><br>
-				Made using: Android studio, posh24 website
-			</div>
-		</div></a>
-
-		<div id="row">
-			<a href = "https://github.com/dvkcool/Colleper" target="_blank"><div id="box" class="project-tile" >COLLEPER  <br><br>
-				Made using: HTML, CSS, Javascript, Nodejs, Kubernetes
-			</div></a>
-		</div>
-	</div>
-	<div id="footer"> 
-<div id="text">Contact :-</div>
-<div id="cnt">vaibnakgupta100@gmail.com</div>
-
-<div id="logos">
-	<a href="https://twitter.com/vaibhav46812569" target="_blank"><img src="twitter.png"></a>
-	<a href="https://github.com/vaibnak" target="_blank" id="profile-link"><img src="github.png"></a>
-	<img src="facebook.png">
-</div> 
-</div>
-</div>
-<script src="portfolio.js"></script>
+<body data-theme="light">
+  <nav class="toolbar" aria-label="Resume display controls">
+    <div class="toolbar-group" aria-label="Theme">
+      <button class="active" data-theme-choice="light">Light</button>
+      <button data-theme-choice="dark">Dark</button>
+      <button data-theme-choice="terminal">Terminal</button>
+    </div>
+    <div class="toolbar-group">
+      <label for="accent-choice" style="font-size:12px;color:var(--muted)">Accent</label>
+      <select id="accent-choice" aria-label="Accent color">
+        <option value="blue" selected>Light blue</option>
+        <option value="violet">Violet</option>
+        <option value="teal">Teal</option>
+        <option value="green">Green</option>
+      </select>
+      <button id="print-btn">Print / Save PDF</button>
+    </div>
+  </nav>
+  <main class="resume">
+    <header class="hero">
+      <div class="eyebrow">Resume · Backend & Distributed Systems</div>
+      <h1>Vaibhav Gupta</h1>
+      <p class="headline">Software Development Engineer · AWS DynamoDB Streams</p>
+      <div class="contact">
+        <span>Bengaluru, India</span>
+        <a href="mailto:vaibnakgupta100@gmail.com">vaibnakgupta100@gmail.com</a>
+        <a href="tel:+917987246538">+91 79872 46538</a>
+      </div>
+      <p class="summary">
+        Software engineer with nearly 7 years of experience building and operating distributed systems across cloud infrastructure, retail platforms, and LTE/5G networking. At AWS DynamoDB Streams, leads critical work in distributed execution, API design, performance optimization, capacity planning, and production reliability. Delivered measurable improvements including 50% lower execution runtime on average and up to 25% better p99 latency.
+      </p>
+    </header>
+    <section>
+      <h2>Experience</h2>
+      <article class="role">
+        <div class="role-head"><h3>Software Development Engineer II · AWS</h3><span class="date">Oct 2024 – Present</span></div>
+        <p class="org-meta">Bengaluru, India · DynamoDB Streams</p>
+        <ul>
+          <li>Led the re-architecture of DynamoDB Streams’ shard-cleanup subsystem from a single-node design to distributed, partition-aware execution. Evaluated architecture alternatives, modelled IOPS budgets and failure/recovery semantics, validated performance through shadow testing, and drove a phased global rollout. Reduced execution runtime by <strong>50% on average</strong> and up to <strong>85% in large regions</strong>, while enabling deterministic partition-level rate limiting.</li>
+          <li>Root-caused elevated p99 latency in a high-volume data-plane API and drove a cache-design optimization with three partner teams, including security. Led a gradual all-region rollout that reduced cache misses by <strong>80%</strong> in the largest region, cut cache size by <strong>74%</strong>, and improved p99 latency by up to <strong>25%</strong>.</li>
+          <li>Designed consumer-level Enhanced Monitoring for DynamoDB Streams, including public data-plane API contract changes and API design reviews. Defined safeguards against unbounded customer-controlled metric cardinality and evaluated architecture trade-offs across cost, blast radius, and customer experience.</li>
+          <li>Owned annual service-capacity planning through 2027, presenting forecasts and scaling requirements to senior leadership. Mentored engineers and interns through design/code reviews, participated in production on-call, and drove incident-based reliability fixes and root-cause analyses.</li>
+        </ul>
+      </article>
+      <article class="role">
+        <div class="role-head"><h3>Software Development Engineer II · Amazon Retail</h3><span class="date">Mar 2022 – Oct 2024</span></div>
+        <p class="org-meta">Bengaluru, India</p>
+        <ul>
+          <li>Designed a self-service testing framework for a rules-engine platform, reducing rule-validation turnaround from days to minutes and removing dependency on operations teams. Strengthened production safeguards against untested rule configurations.</li>
+          <li>Built an ML/LLM-backed causal-analysis pipeline for millions of customer shopping journeys, combining multi-source LLM analysis with statistical attribution to identify customer drop-off drivers and prioritize high-value defects.</li>
+        </ul>
+      </article>
+      <article class="role">
+        <div class="role-head"><h3>Engineer · Samsung Research Institute</h3><span class="date">Jan 2020 – Mar 2022</span></div>
+        <p class="org-meta">Bengaluru, India</p>
+        <ul><li>Worked on L1/L2 network-protocol layers for LTE/5G modems, including Dynamic Spectrum Sharing deployments and field-issue resolution across carrier networks.</li></ul>
+      </article>
+    </section>
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-label">Languages & Tools</div><div class="skill-value">Java, C++, Git, CI/CD</div>
+        <div class="skill-label">Core Engineering</div><div class="skill-value">Distributed systems, cloud architecture, API design, system design, performance optimization, reliability engineering, capacity planning</div>
+        <div class="skill-label">Data & AI</div><div class="skill-value">Data streaming and processing, ML/LLM-backed analysis pipelines</div>
+      </div>
+      <p class="org-meta" style="margin-top:12px">Only technologies explicitly listed in the source resume are included. Add specific databases, frameworks, and infrastructure tools only if you have hands-on experience and can discuss them in interviews.</p>
+    </section>
+    <section>
+      <h2>Education</h2>
+      <div class="education"><div><h3>Bachelor of Technology</h3><div class="org-meta">National Institute of Technology, Raipur</div></div><span class="date">Jun 2020</span></div>
+    </section>
+    <section>
+      <h2>Recognition</h2>
+      <ul class="recognition">
+        <li>ACM-ICPC 2019–20 regionalist (Gwalior); among the top three teams from college.</li>
+        <li>CodeChef 5-star (rating 2059) · Codeforces Expert (rating 1708).</li>
+        <li>Passed Samsung SWC Software Competency Professional-level test three times.</li>
+        <li>Delivered business-critical projects across AWS DynamoDB Streams infrastructure and Amazon Retail customer-experience platforms.</li>
+      </ul>
+    </section>
+  </main>
+  <div class="footer">Built as a responsive, printable resume page · Use “Print / Save PDF” to export.</div>
+  <script>
+    const themeButtons = [...document.querySelectorAll('[data-theme-choice]')];
+    themeButtons.forEach(button => button.addEventListener('click', () => {
+      document.body.dataset.theme = button.dataset.themeChoice;
+      themeButtons.forEach(b => b.classList.toggle('active', b === button));
+    }));
+    const accents = {
+      blue: ['#edf3fb','#2463c7','#e8f0ff'],
+      violet: ['#f2efff','#6d4bd1','#eee8ff'],
+      teal: ['#eaf8f7','#087f8c','#dff5f2'],
+      green: ['#eef8f0','#287a43','#e4f5e8']
+    };
+    document.getElementById('accent-choice').addEventListener('change', e => {
+      const [bg, accent, soft] = accents[e.target.value];
+      document.documentElement.style.setProperty('--bg', bg);
+      document.documentElement.style.setProperty('--accent', accent);
+      document.documentElement.style.setProperty('--accent-soft', soft);
+    });
+    document.getElementById('print-btn').addEventListener('click', () => window.print());
+  </script>
 </body>
 </html>
