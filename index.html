@@ -72,7 +72,12 @@
       .toolbar, .footer { display: none !important; }
       .resume { width: 100%; margin: 0; padding: 0; border: 0; box-shadow: none; border-radius: 0; }
       section { margin-top: 20px; }
-      .role { break-inside: avoid; margin-bottom: 15px; }
+      /* Let experience entries flow across pages instead of leaving large blank areas.
+         Keep each individual bullet and its role heading together where possible. */
+      .role { break-inside: auto; margin-bottom: 15px; }
+      .role-head, .org-meta, .role li { break-inside: avoid; }
+      .role-head { break-after: avoid; }
+      .org-meta { break-after: avoid; }
       a { color: inherit; }
     }
   </style>
