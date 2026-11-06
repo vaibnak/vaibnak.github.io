@@ -106,7 +106,7 @@
         <a href="tel:+917987246538">+91 79872 46538</a>
       </div>
       <p class="summary">
-        Software engineer with nearly 7 years of experience building and operating distributed systems across cloud infrastructure, retail platforms, and LTE/5G networking. At AWS DynamoDB Streams, leads critical work in distributed execution, API design, performance optimization, capacity planning, and production reliability. Delivered measurable improvements including 50% lower execution runtime on average and up to 25% better p99 latency.
+        Software Development Engineer with nearly 7 years of experience architecting, scaling, and operating high-throughput distributed systems. Currently at AWS DynamoDB Streams, owning critical components serving millions of requests per second globally.
       </p>
     </header>
     <section>
@@ -115,18 +115,18 @@
         <div class="role-head"><h3>Software Development Engineer II · AWS</h3><span class="date">Oct 2024 – Present</span></div>
         <p class="org-meta">Bengaluru, India · DynamoDB Streams</p>
         <ul>
-          <li>Led the re-architecture of DynamoDB Streams’ shard-cleanup subsystem from a single-node design to distributed, partition-aware execution. Evaluated architecture alternatives, modelled IOPS budgets and failure/recovery semantics, validated performance through shadow testing, and drove a phased global rollout. Reduced execution runtime by <strong>50% on average</strong> and up to <strong>85% in large regions</strong>, while enabling deterministic partition-level rate limiting.</li>
+          <li>Led the end-to-end re-architecture of DynamoDB Streams' shard-cleanup subsystem, replacing a single-node design with a distributed, partition-aware execution model. Evaluated architectural alternatives, modelled IOPS budgets and failure/recovery semantics, validated performance through shadow testing, and drove a phased global rollout. Reduced execution runtime by <strong>50% on average</strong> (up to <strong>85% in large regions</strong>) across AWS regions and enabled deterministic partition-level rate limiting.</li>
           <li>Root-caused elevated p99 latency in a high-volume data-plane API and drove a cache-design optimization with three partner teams, including security. Led a gradual all-region rollout that reduced cache misses by <strong>80%</strong> in the largest region, cut cache size by <strong>74%</strong>, and improved p99 latency by up to <strong>25%</strong>.</li>
-          <li>Designed consumer-level Enhanced Monitoring for DynamoDB Streams, including public data-plane API contract changes and API design reviews. Defined safeguards against unbounded customer-controlled metric cardinality and evaluated architecture trade-offs across cost, blast radius, and customer experience.</li>
-          <li>Owned annual service-capacity planning through 2027, presenting forecasts and scaling requirements to senior leadership. Mentored engineers and interns through design/code reviews, participated in production on-call, and drove incident-based reliability fixes and root-cause analyses.</li>
+          <li>Independently designed and implemented consumer-level Enhanced Monitoring for DynamoDB Streams, including public data-plane API contract changes and API design reviews. Established safeguards against unbounded customer-controlled metric cardinality, balancing architectural trade-offs across service cost, blast radius, and customer experience.</li>
+          <li>Owned annual service-capacity planning for DynamoDB Streams through 2027, developing capacity forecasts and presenting scaling requirements to senior leadership. Drove production incident investigations as part of the on-call rotation, conducting root-cause analyses and implementing follow-up reliability fixes to address underlying issues and strengthen service resilience. Mentored engineers and interns through design and code reviews.</li>
         </ul>
       </article>
       <article class="role">
         <div class="role-head"><h3>Software Development Engineer II · Amazon Retail</h3><span class="date">Mar 2022 – Oct 2024</span></div>
         <p class="org-meta">Bengaluru, India</p>
         <ul>
-          <li>Designed a self-service testing framework for a rules-engine platform, reducing rule-validation turnaround from days to minutes and removing dependency on operations teams. Strengthened production safeguards against untested rule configurations.</li>
-          <li>Built an ML/LLM-backed causal-analysis pipeline for millions of customer shopping journeys, combining multi-source LLM analysis with statistical attribution to identify customer drop-off drivers and prioritize high-value defects.</li>
+          <li>Owned the architecture and design of a self-service, serverless testing platform that enabled rule authors to validate deterministic business rules pre-production across ~34K rule versions. Addressed a critical testing gap associated with high-severity workflow outages, reducing rule-validation turnaround from days to minutes and eliminating dependency on operations teams. Drove architecture reviews and mentored an intern through delivery.</li>
+          <li>Built core data-pipeline and event-driven integration components for an AI/ML platform that detects customer-experience defects across Amazon's storefront (search, catalog, pricing, and sizing) and quantifies their business impact to prioritize fixes across millions of shopping journeys. Designed the transformation pipeline that converts raw search queries and behavioral signals into a structured defect taxonomy with per-defect customer-impact metrics, combining LLM-based defect checks with statistical attribution. Built proactive ML-model error detection, replacing silent failures with metrics-driven alarming.</li>
         </ul>
       </article>
       <article class="role">
@@ -138,11 +138,11 @@
     <section>
       <h2>Technical Skills</h2>
       <div class="skills-grid">
-        <div class="skill-label">Languages & Tools</div><div class="skill-value">Java, C++, Git, CI/CD</div>
-        <div class="skill-label">Core Engineering</div><div class="skill-value">Distributed systems, cloud architecture, API design, system design, performance optimization, reliability engineering, capacity planning</div>
-        <div class="skill-label">Data & AI</div><div class="skill-value">Data streaming and processing, ML/LLM-backed analysis pipelines</div>
+        <div class="skill-label">Programming Languages</div><div class="skill-value">Java, C++</div>
+        <div class="skill-label">Cloud & Infrastructure</div><div class="skill-value">AWS, DynamoDB, Lambda, SNS, SQS, S3, RDS, CI/CD</div>
+        <div class="skill-label">Backend & Systems Engineering</div><div class="skill-value">Distributed Systems, System Design, API Design, Event-Driven Architecture, Serverless Architecture, Caching, Performance Optimization, Reliability Engineering, Observability, Capacity Planning</div>
+        <div class="skill-label">Data Engineering & Stream Processing</div><div class="skill-value">Apache Flink, Apache Spark, ETL Pipelines, Data Streaming & Processing</div>
       </div>
-      <p class="org-meta" style="margin-top:12px">Only technologies explicitly listed in the source resume are included. Add specific databases, frameworks, and infrastructure tools only if you have hands-on experience and can discuss them in interviews.</p>
     </section>
     <section>
       <h2>Education</h2>
